@@ -1,86 +1,141 @@
-<style>
-    table {
-        border-collapse: collapse;
-        width: 80%;
-        margin: 0 auto;
-        font-size: 14px;
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #4CAF50;
-        color: white;
-    }
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-    .table-container {
-        max-height: 400px;
-        overflow-y: auto;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interactive Table and Plot</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+    <!-- Include d3 and mpld3 libraries -->
+    <script src="https://mpld3.github.io/js/d3.v3.min.js"></script>
+    <script src="https://mpld3.github.io/js/mpld3.v0.3.js"></script>
+</head>
+<body>
 
-<h2>TABLE 1</h2>
-<div class="table-container">
-    <table>
-        <thead>
-            <tr>
-                <th>V_base</th>
-                <th>K (mS cm⁻¹)</th>
-                <th>K_corrected (mS cm⁻¹)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>0.0</td><td>43.10</td><td>45.31</td></tr>
-            <tr><td>1.0</td><td>42.50</td><td>44.68</td></tr>
-            <tr><td>2.0</td><td>40.50</td><td>42.58</td></tr>
-            <tr><td>3.0</td><td>38.20</td><td>40.16</td></tr>
-            <tr><td>4.0</td><td>37.50</td><td>39.43</td></tr>
-            <tr><td>5.0</td><td>35.90</td><td>37.75</td></tr>
-            <tr><td>6.0</td><td>34.20</td><td>35.96</td></tr>
-            <tr><td>7.0</td><td>33.10</td><td>34.80</td></tr>
-            <tr><td>8.0</td><td>31.30</td><td>32.91</td></tr>
-            <tr><td>9.0</td><td>29.60</td><td>31.12</td></tr>
-            <tr><td>10.0</td><td>28.00</td><td>29.44</td></tr>
-            <tr><td>11.0</td><td>24.10</td><td>25.34</td></tr>
-            <tr><td>12.0</td><td>21.80</td><td>22.92</td></tr>
-            <tr><td>13.0</td><td>19.69</td><td>20.70</td></tr>
-            <tr><td>14.0</td><td>17.61</td><td>18.52</td></tr>
-            <tr><td>15.0</td><td>16.78</td><td>17.64</td></tr>
-            <tr><td>15.2</td><td>15.18</td><td>15.96</td></tr>
-            <tr><td>15.4</td><td>15.04</td><td>15.81</td></tr>
-            <tr><td>15.6</td><td>14.79</td><td>15.55</td></tr>
-            <tr><td>15.8</td><td>13.92</td><td>14.64</td></tr>
-            <tr><td>16.0</td><td>13.88</td><td>14.59</td></tr>
-            <tr><td>16.2</td><td>13.55</td><td>14.25</td></tr>
-            <tr><td>16.4</td><td>13.14</td><td>13.82</td></tr>
-            <tr><td>16.6</td><td>12.89</td><td>13.55</td></tr>
-            <tr><td>16.8</td><td>12.36</td><td>13.00</td></tr>
-            <tr><td>17.0</td><td>12.03</td><td>12.65</td></tr>
-            <tr><td>17.2</td><td>11.75</td><td>12.35</td></tr>
-            <tr><td>17.4</td><td>11.51</td><td>12.10</td></tr>
-            <tr><td>17.6</td><td>11.34</td><td>11.92</td></tr>
-            <tr><td>17.8</td><td>11.29</td><td>11.87</td></tr>
-            <tr><td>18.0</td><td>10.93</td><td>11.49</td></tr>
-            <tr><td>18.2</td><td>10.82</td><td>11.38</td></tr>
-            <tr><td>18.4</td><td>10.54</td><td>11.08</td></tr>
-            <tr><td>18.6</td><td>10.34</td><td>10.87</td></tr>
-            <tr><td>18.8</td><td>10.20</td><td>10.72</td></tr>
-            <tr><td>19.0</td><td>10.44</td><td>10.98</td></tr>
-            <tr><td>19.2</td><td>10.57</td><td>11.11</td></tr>
-            <tr><td>19.4</td><td>10.79</td><td>11.34</td></tr>
-            <tr><td>19.6</td><td>11.02</td><td>11.59</td></tr>
-            <tr><td>19.8</td><td>11.10</td><td>11.67</td></tr>
-            <tr><td>20.0</td><td>11.35</td><td>11.93</td></tr>
-            <tr><td>21.0</td><td>11.98</td><td>12.60</td></tr>
-            <tr><td>22.0</td><td>12.59</td><td>13.24</td></tr>
-            <tr><td>23.0</td><td>13.35</td><td>14.04</td></tr>
-            <tr><td>24.0</td><td>14.26</td><td>14.99</td></tr>
-            <tr><td>25.0</td><td>15.00</td><td>15.77</td></tr>
-        </tbody>
-    </table>
-</div>
+    <h2>TABLE 1</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>V_base</th>
+                    <th>K (mS cm⁻¹)</th>
+                    <th>K_corrected (mS cm⁻¹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>0.0</td><td>43.10</td><td>45.31</td></tr>
+                <tr><td>1.0</td><td>42.50</td><td>44.68</td></tr>
+                <tr><td>2.0</td><td>40.50</td><td>42.58</td></tr>
+                <tr><td>3.0</td><td>38.20</td><td>40.16</td></tr>
+                <tr><td>4.0</td><td>37.50</td><td>39.43</td></tr>
+                <tr><td>5.0</td><td>35.90</td><td>37.75</td></tr>
+                <tr><td>6.0</td><td>34.20</td><td>35.96</td></tr>
+                <tr><td>7.0</td><td>33.10</td><td>34.80</td></tr>
+                <tr><td>8.0</td><td>31.30</td><td>32.91</td></tr>
+                <tr><td>9.0</td><td>29.60</td><td>31.12</td></tr>
+                <tr><td>10.0</td><td>28.00</td><td>29.44</td></tr>
+                <tr><td>11.0</td><td>24.10</td><td>25.34</td></tr>
+                <tr><td>12.0</td><td>21.80</td><td>22.92</td></tr>
+                <tr><td>13.0</td><td>19.69</td><td>20.70</td></tr>
+                <tr><td>14.0</td><td>17.61</td><td>18.52</td></tr>
+                <tr><td>15.0</td><td>16.78</td><td>17.64</td></tr>
+                <tr><td>15.2</td><td>15.18</td><td>15.96</td></tr>
+                <tr><td>15.4</td><td>15.04</td><td>15.81</td></tr>
+                <tr><td>15.6</td><td>14.79</td><td>15.55</td></tr>
+                <tr><td>15.8</td><td>13.92</td><td>14.64</td></tr>
+                <tr><td>16.0</td><td>13.88</td><td>14.59</td></tr>
+                <tr><td>16.2</td><td>13.55</td><td>14.25</td></tr>
+                <tr><td>16.4</td><td>13.14</td><td>13.82</td></tr>
+                <tr><td>16.6</td><td>12.89</td><td>13.55</td></tr>
+                <tr><td>16.8</td><td>12.36</td><td>13.00</td></tr>
+                <tr><td>17.0</td><td>12.03</td><td>12.65</td></tr>
+                <tr><td>17.2</td><td>11.75</td><td>12.35</td></tr>
+                <tr><td>17.4</td><td>11.51</td><td>12.10</td></tr>
+                <tr><td>17.6</td><td>11.34</td><td>11.92</td></tr>
+                <tr><td>17.8</td><td>11.29</td><td>11.87</td></tr>
+                <tr><td>18.0</td><td>10.93</td><td>11.49</td></tr>
+                <tr><td>18.2</td><td>10.82</td><td>11.38</td></tr>
+                <tr><td>18.4</td><td>10.54</td><td>11.08</td></tr>
+                <tr><td>18.6</td><td>10.34</td><td>10.87</td></tr>
+                <tr><td>18.8</td><td>10.20</td><td>10.72</td></tr>
+                <tr><td>19.0</td><td>10.44</td><td>10.98</td></tr>
+                <tr><td>19.2</td><td>10.57</td><td>11.11</td></tr>
+                <tr><td>19.4</td><td>10.79</td><td>11.34</td></tr>
+                <tr><td>19.6</td><td>11.02</td><td>11.59</td></tr>
+                <tr><td>19.8</td><td>11.10</td><td>11.67</td></tr>
+                <tr><td>20.0</td><td>11.35</td><td>11.93</td></tr>
+                <tr><td>21.0</td><td>11.98</td><td>12.60</td></tr>
+                <tr><td>22.0</td><td>12.59</td><td>13.24</td></tr>
+                <tr><td>23.0</td><td>13.35</td><td>14.04</td></tr>
+                <tr><td>24.0</td><td>14.26</td><td>14.99</td></tr>
+                <tr><td>25.0</td><td>15.00</td><td>15.77</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h3>Graph: K_corrected vs V_base</h3>
+    <!-- Insert the interactive mpld3 plot here -->
+    <div id="mpld3-plot">
+            <div id="fig_el1091226525802543845917992284"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
 
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+       mpld3.draw_figure("fig_el1091226525802543845917992284", {"width": 800.0, "height": 600.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.775, 0.77], "xlim": [-1.25, 26.25], "ylim": [10.0, 50.0], "xdomain": [-1.25, 26.25], "ydomain": [10.0, 50.0], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 26, "tickvalues": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0], "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true, "color": "#B0B0B0", "dasharray": "6,6", "alpha": 0.6}, "visible": true}, {"position": "left", "nticks": 9, "tickvalues": [10, 15, 20, 25, 30, 35, 40, 45, 50], "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true, "color": "#B0B0B0", "dasharray": "6,6", "alpha": 0.6}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el109122652596995472", "lines": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el109122652581815760", "color": "#0000FF", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}], "paths": [], "markers": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el109122652581815760pts", "facecolor": "#0000FF", "edgecolor": "#0000FF", "edgewidth": 1.0, "alpha": 1, "zorder": 2, "markerpath": [[[0.0, 3.0], [0.7956093000000001, 3.0], [1.5587396123545605, 2.683901074764725], [2.121320343559643, 2.121320343559643], [2.683901074764725, 1.5587396123545605], [3.0, 0.7956093000000001], [3.0, 0.0], [3.0, -0.7956093000000001], [2.683901074764725, -1.5587396123545605], [2.121320343559643, -2.121320343559643], [1.5587396123545605, -2.683901074764725], [0.7956093000000001, -3.0], [0.0, -3.0], [-0.7956093000000001, -3.0], [-1.5587396123545605, -2.683901074764725], [-2.121320343559643, -2.121320343559643], [-2.683901074764725, -1.5587396123545605], [-3.0, -0.7956093000000001], [-3.0, 0.0], [-3.0, 0.7956093000000001], [-2.683901074764725, 1.5587396123545605], [-2.121320343559643, 2.121320343559643], [-1.5587396123545605, 2.683901074764725], [-0.7956093000000001, 3.0], [0.0, 3.0]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]}], "texts": [{"text": "V_base", "position": [0.5, -0.06337181337181337], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652596998160"}, {"text": "K_corrected (mS cm$^{-1}$)", "position": [-0.05306899641577062, 0.5], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -90.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652581820240"}, {"text": "Plot of K_corrected vs V_base", "position": [0.5, 1.018037518037518], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -0.0, "fontsize": 12.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652597080848"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[0.0, 45.32], [1.0, 44.68], [2.0, 42.58], [3.0, 40.16], [4.0, 39.43], [5.0, 37.75], [6.0, 35.96], [7.0, 34.8], [8.0, 32.91], [9.0, 31.12], [10.0, 29.44], [11.0, 25.34], [12.0, 22.92], [13.0, 20.7], [14.0, 18.52], [15.0, 17.64], [15.2, 15.96], [15.4, 15.81], [15.6, 15.55], [15.8, 14.64], [16.0, 14.59], [16.2, 14.25], [16.4, 13.82], [16.6, 13.55], [16.8, 13.0], [17.0, 12.65], [17.2, 12.35], [17.4, 12.1], [17.6, 11.92], [17.8, 11.87], [18.0, 11.49], [18.2, 11.38], [18.4, 11.08], [18.6, 10.87], [18.8, 10.72], [19.0, 10.98], [19.2, 11.11], [19.4, 11.34], [19.6, 11.59], [19.8, 11.67], [20.0, 11.93], [21.0, 12.6], [22.0, 13.24], [23.0, 14.04], [24.0, 14.99], [25.0, 15.77]]}, "id": "el109122652580254384", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}]});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://d3js.org/d3.v5"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.5.10.js", function(){
+         
+         mpld3.draw_figure("fig_el1091226525802543845917992284", {"width": 800.0, "height": 600.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.775, 0.77], "xlim": [-1.25, 26.25], "ylim": [10.0, 50.0], "xdomain": [-1.25, 26.25], "ydomain": [10.0, 50.0], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 26, "tickvalues": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0], "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true, "color": "#B0B0B0", "dasharray": "6,6", "alpha": 0.6}, "visible": true}, {"position": "left", "nticks": 9, "tickvalues": [10, 15, 20, 25, 30, 35, 40, 45, 50], "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true, "color": "#B0B0B0", "dasharray": "6,6", "alpha": 0.6}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el109122652596995472", "lines": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el109122652581815760", "color": "#0000FF", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}], "paths": [], "markers": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el109122652581815760pts", "facecolor": "#0000FF", "edgecolor": "#0000FF", "edgewidth": 1.0, "alpha": 1, "zorder": 2, "markerpath": [[[0.0, 3.0], [0.7956093000000001, 3.0], [1.5587396123545605, 2.683901074764725], [2.121320343559643, 2.121320343559643], [2.683901074764725, 1.5587396123545605], [3.0, 0.7956093000000001], [3.0, 0.0], [3.0, -0.7956093000000001], [2.683901074764725, -1.5587396123545605], [2.121320343559643, -2.121320343559643], [1.5587396123545605, -2.683901074764725], [0.7956093000000001, -3.0], [0.0, -3.0], [-0.7956093000000001, -3.0], [-1.5587396123545605, -2.683901074764725], [-2.121320343559643, -2.121320343559643], [-2.683901074764725, -1.5587396123545605], [-3.0, -0.7956093000000001], [-3.0, 0.0], [-3.0, 0.7956093000000001], [-2.683901074764725, 1.5587396123545605], [-2.121320343559643, 2.121320343559643], [-1.5587396123545605, 2.683901074764725], [-0.7956093000000001, 3.0], [0.0, 3.0]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]}], "texts": [{"text": "V_base", "position": [0.5, -0.06337181337181337], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652596998160"}, {"text": "K_corrected (mS cm$^{-1}$)", "position": [-0.05306899641577062, 0.5], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -90.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652581820240"}, {"text": "Plot of K_corrected vs V_base", "position": [0.5, 1.018037518037518], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -0.0, "fontsize": 12.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652597080848"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[0.0, 45.32], [1.0, 44.68], [2.0, 42.58], [3.0, 40.16], [4.0, 39.43], [5.0, 37.75], [6.0, 35.96], [7.0, 34.8], [8.0, 32.91], [9.0, 31.12], [10.0, 29.44], [11.0, 25.34], [12.0, 22.92], [13.0, 20.7], [14.0, 18.52], [15.0, 17.64], [15.2, 15.96], [15.4, 15.81], [15.6, 15.55], [15.8, 14.64], [16.0, 14.59], [16.2, 14.25], [16.4, 13.82], [16.6, 13.55], [16.8, 13.0], [17.0, 12.65], [17.2, 12.35], [17.4, 12.1], [17.6, 11.92], [17.8, 11.87], [18.0, 11.49], [18.2, 11.38], [18.4, 11.08], [18.6, 10.87], [18.8, 10.72], [19.0, 10.98], [19.2, 11.11], [19.4, 11.34], [19.6, 11.59], [19.8, 11.67], [20.0, 11.93], [21.0, 12.6], [22.0, 13.24], [23.0, 14.04], [24.0, 14.99], [25.0, 15.77]]}, "id": "el109122652580254384", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}]});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://d3js.org/d3.v5.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.5.10.js", function(){
+                 
+                 mpld3.draw_figure("fig_el1091226525802543845917992284", {"width": 800.0, "height": 600.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.775, 0.77], "xlim": [-1.25, 26.25], "ylim": [10.0, 50.0], "xdomain": [-1.25, 26.25], "ydomain": [10.0, 50.0], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 26, "tickvalues": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0], "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true, "color": "#B0B0B0", "dasharray": "6,6", "alpha": 0.6}, "visible": true}, {"position": "left", "nticks": 9, "tickvalues": [10, 15, 20, 25, 30, 35, 40, 45, 50], "tickformat_formatter": "", "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true, "color": "#B0B0B0", "dasharray": "6,6", "alpha": 0.6}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el109122652596995472", "lines": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el109122652581815760", "color": "#0000FF", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}], "paths": [], "markers": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el109122652581815760pts", "facecolor": "#0000FF", "edgecolor": "#0000FF", "edgewidth": 1.0, "alpha": 1, "zorder": 2, "markerpath": [[[0.0, 3.0], [0.7956093000000001, 3.0], [1.5587396123545605, 2.683901074764725], [2.121320343559643, 2.121320343559643], [2.683901074764725, 1.5587396123545605], [3.0, 0.7956093000000001], [3.0, 0.0], [3.0, -0.7956093000000001], [2.683901074764725, -1.5587396123545605], [2.121320343559643, -2.121320343559643], [1.5587396123545605, -2.683901074764725], [0.7956093000000001, -3.0], [0.0, -3.0], [-0.7956093000000001, -3.0], [-1.5587396123545605, -2.683901074764725], [-2.121320343559643, -2.121320343559643], [-2.683901074764725, -1.5587396123545605], [-3.0, -0.7956093000000001], [-3.0, 0.0], [-3.0, 0.7956093000000001], [-2.683901074764725, 1.5587396123545605], [-2.121320343559643, 2.121320343559643], [-1.5587396123545605, 2.683901074764725], [-0.7956093000000001, 3.0], [0.0, 3.0]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]}], "texts": [{"text": "V_base", "position": [0.5, -0.06337181337181337], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652596998160"}, {"text": "K_corrected (mS cm$^{-1}$)", "position": [-0.05306899641577062, 0.5], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -90.0, "fontsize": 10.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652581820240"}, {"text": "Plot of K_corrected vs V_base", "position": [0.5, 1.018037518037518], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -0.0, "fontsize": 12.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el109122652597080848"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[0.0, 45.32], [1.0, 44.68], [2.0, 42.58], [3.0, 40.16], [4.0, 39.43], [5.0, 37.75], [6.0, 35.96], [7.0, 34.8], [8.0, 32.91], [9.0, 31.12], [10.0, 29.44], [11.0, 25.34], [12.0, 22.92], [13.0, 20.7], [14.0, 18.52], [15.0, 17.64], [15.2, 15.96], [15.4, 15.81], [15.6, 15.55], [15.8, 14.64], [16.0, 14.59], [16.2, 14.25], [16.4, 13.82], [16.6, 13.55], [16.8, 13.0], [17.0, 12.65], [17.2, 12.35], [17.4, 12.1], [17.6, 11.92], [17.8, 11.87], [18.0, 11.49], [18.2, 11.38], [18.4, 11.08], [18.6, 10.87], [18.8, 10.72], [19.0, 10.98], [19.2, 11.11], [19.4, 11.34], [19.6, 11.59], [19.8, 11.67], [20.0, 11.93], [21.0, 12.6], [22.0, 13.24], [23.0, 14.04], [24.0, 14.99], [25.0, 15.77]]}, "id": "el109122652580254384", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}]});
+            })
+         });
+}
+</script>
+    </div>
+
+</body>
+</html>
